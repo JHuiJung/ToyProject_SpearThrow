@@ -8,7 +8,7 @@ public class Test_Move : MonoBehaviour
     public float speed = 8f;
     public float turnSpeed = 8.0f;
     float verical;
-    private float xRotate, yRotate, xRotateMove, yRotateMove;
+    private float xRotate, yRotate=0f;
     float horizon;
 
     // Start is called before the first frame update
