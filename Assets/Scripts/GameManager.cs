@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public bool isGameEnd = false;
-    
+    public bool isGameEnd { get ; set; } = false;
+    public uint font_size { get; set; } = 3;
     
     public int score = 0;
     public int total_Time = 100;
@@ -51,23 +51,10 @@ public class GameManager : MonoBehaviour
     void Update_Time()
     {
         empty_time += Time.deltaTime;
-        if(empty_time >= 1 && !isGameEnd)
+        if(empty_time >= 1)
         {
-            empty_time = 0;
             total_Time -= 1;
-            if(total_Time <= 0)
-            {
-                GameOver();
-            }
         }
     }
 
-    public void Add_Score(int score)
-    {
-        this.score += score;
-    }
-    void GameOver()
-    {
-        isGameEnd = true;
-    }
 }

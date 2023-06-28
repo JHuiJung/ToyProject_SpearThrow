@@ -20,7 +20,6 @@ public class Wall : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
         if (isCreate)
         {
             Debug.Log("»ý¼º!");
