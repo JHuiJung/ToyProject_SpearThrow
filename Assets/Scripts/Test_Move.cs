@@ -40,7 +40,7 @@ public class Test_Move : MonoBehaviour
         float yRotateSize = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
         
 
-        yRotate = Mathf.Clamp(yRotate + yRotateSize, -30, 30);
+        yRotate = Mathf.Clamp(yRotate + yRotateSize, -90, 90);
         
         float xRotateSize = -Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime;
         
