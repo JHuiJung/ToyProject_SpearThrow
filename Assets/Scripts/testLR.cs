@@ -22,7 +22,7 @@ public class testLR : MonoBehaviour
 
         Vector3 center = (startPos + endPos)*0.5f;
 
-        center.y *= 0.5f;
+        center.y -= 5f;
 
         startPos -= center;
         endPos -= center;
