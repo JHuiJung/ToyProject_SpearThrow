@@ -104,4 +104,9 @@ public class Animal : MonoBehaviour
         GameManager.Instance.score += animal_Score;
         Destroy(gameObject, 1.5f);
     }
+
+    public void Destroy_animal()
+    {
+        Destroy(gameObject);
+    }
 }

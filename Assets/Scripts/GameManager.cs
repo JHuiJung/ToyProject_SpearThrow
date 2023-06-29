@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +41,8 @@ public class GameManager : MonoBehaviour
 
     public bool isGameEnd { get ; set; } = false;
     public bool isGameStart { get; set; } = false;
+    public TMP_Text Txt_Score;
+    public GameObject Restart_Menu;
     
     public int score = 0;
     public int total_Time = 100;
@@ -47,14 +52,47 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Update_Time();
+        Update_Text();
+    }
+    void Update_Text()
+    {
+        if (isGameStart)
+        {
+            Txt_Score.text = "Time : " +total_Time.ToString() + "\nSCORE : " + score.ToString();
+            
+        }
     }
     void Update_Time()
     {
-        empty_time += Time.deltaTime;
-        if(empty_time >= 1)
+        if(isGameStart)
         {
-            total_Time -= 1;
+            empty_time += Time.deltaTime;
+            if (empty_time >= 1)
+            {
+                empty_time = 0;
+                total_Time -= 1;
+                if(total_Time <= 0)
+                {
+                    Txt_Score.text = "Time OVER " + "\nTotal SCORE : " + score.ToString();
+                    isGameStart = false;
+                    OnGameEnd();
+                }
+            }
         }
+        
     }
-
+    void OnGameEnd()
+    {
+        GameObject[] all_animals = GameObject.FindGameObjectsWithTag("Animal");
+        for (int i = 0;i < all_animals.Length; i++)
+        {
+            all_animals[i].GetComponent<Animal>().Destroy_animal();
+        }
+        StartCoroutine(OpenRestartMenu());
+    }
+    IEnumerator OpenRestartMenu()
+    {
+        yield return new WaitForSeconds(3f);
+        Restart_Menu.SetActive(true);
+    }
 }

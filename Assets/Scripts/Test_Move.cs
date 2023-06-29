@@ -90,17 +90,9 @@ public class Test_Move : MonoBehaviour
 
     void Camera_Move()
     {
+        float yRotateSize = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
+        yRotate = Mathf.Clamp(yRotate + yRotateSize, -60, 60);
         
-        if(Input.GetKey(KeyCode.Q))
-        {
-            float yRotateSize = -1*turnSpeed * Time.deltaTime;
-            yRotate = Mathf.Clamp(yRotate + yRotateSize, -30, 30);
-        }
-        else if (Input.GetKey(KeyCode.E))
-        {
-            float yRotateSize = turnSpeed * Time.deltaTime;
-            yRotate = Mathf.Clamp(yRotate + yRotateSize, -30, 30);
-        }
         float xRotateSize = -Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime;
 
         xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 80);
