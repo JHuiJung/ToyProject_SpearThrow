@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator OpenRestartMenu()
     {
+        total_Time = 100;
+        score = 0;
         yield return new WaitForSeconds(3f);
         Restart_Menu.SetActive(true);
     }

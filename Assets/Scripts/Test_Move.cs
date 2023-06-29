@@ -90,18 +90,7 @@ public class Test_Move : MonoBehaviour
 
     void Camera_Move()
     {
-        float yRotateSize = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
-        yRotate = Mathf.Clamp(yRotate + yRotateSize, -60, 60);
         
-        float xRotateSize = -Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime;
-
-        xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 80);
-
-
-
-
-
-        Player_Camera.transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
 
     }
 
@@ -111,6 +100,7 @@ public class Test_Move : MonoBehaviour
         if(Physics.Raycast(mouseRay,out hit, Mathf.Infinity, LayerMask.GetMask("Ground"))){
             Ground_Transform = hit.point;
         }
+
         
     }
 

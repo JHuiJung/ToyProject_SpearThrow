@@ -21,7 +21,7 @@ public class UI_RestartMenu : MonoBehaviour
     {
         if (other.tag == "Spear")
         {
-            SceneManager.LoadScene("SpearThrow");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
     }
