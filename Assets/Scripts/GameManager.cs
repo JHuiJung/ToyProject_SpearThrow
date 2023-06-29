@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         Update_Time();
         Update_Text();
+        
     }
     void Update_Text()
     {
