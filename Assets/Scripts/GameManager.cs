@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     }
 
     public bool isGameEnd { get ; set; } = false;
-    public uint font_size { get; set; } = 3;
+    public bool isGameStart { get; set; } = false;
     
     public int score = 0;
     public int total_Time = 100;

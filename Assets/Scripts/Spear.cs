@@ -17,10 +17,14 @@ public class Spear : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
-            Debug.Log(Throw_Vector.normalized);
+
             rb.AddForce(Throw_Vector.normalized * Throw_Power, ForceMode.Impulse);
         }
         
+    }
+    public void Destroy_this()
+    {
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

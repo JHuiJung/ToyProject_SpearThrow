@@ -13,15 +13,18 @@ public class Test_Move : MonoBehaviour
     public Transform Throw_start;
     public float speed = 8f;
     public float turnSpeed = 8.0f;
+    public float throw_power = 0f;
     float verical;
     float horizon;
     float xRotate, yRotate;
     RaycastHit hit;
     Ray mouseRay;
     bool isShoot;
+    testLR lr;
     void Start()
     {
         mouseRay = new Ray();
+        lr = GameObject.FindGameObjectWithTag("GameController").GetComponent<testLR>();
     }
 
     // Update is called once per frame
@@ -37,32 +40,46 @@ public class Test_Move : MonoBehaviour
     {
         if(isShoot) {
             Spear.transform.eulerAngles = Player_Camera.transform.eulerAngles + new Vector3(60f, 0, 0);
-
-            GameObject s = Instantiate(Prefab_Spears, Throw_start.position,Player_Camera.transform.rotation);
-            if(s != null)
+            throw_power += 100f * Time.deltaTime;
+            if(throw_power > 100f)
             {
-                s.AddComponent<Rigidbody>();
-                Spear sp = s.GetComponent<Spear>();
-                if(sp != null)
-                {
-
-                    sp.Throw((Ground_Transform - Throw_start.position), 10f);
-                }
-                
-                
+                throw_power = 100f;
             }
+            Spear.GetComponent<Transform>().position -= new Vector3(0,0,1f) * Time.deltaTime;
+            lr.set_LR(true);
+            
             
         }
         else
         {
             Spear.transform.eulerAngles = Player_Camera.transform.eulerAngles + new Vector3(90f, 0, 0);
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            lr.set_LR(false); 
+            GameObject s = Instantiate(Prefab_Spears, Throw_start.position, Player_Camera.transform.rotation);
+            Spear.GetComponent<Transform>().localPosition = new Vector3(0.35f,-0.1f,0.25f);
+            if (s != null)
+            {
+                s.AddComponent<Rigidbody>();
+                Spear sp = s.GetComponent<Spear>();
+                if (sp != null)
+                {
+
+                    sp.Throw((Ground_Transform - Throw_start.position), throw_power);
+                    throw_power = 0f;
+                }
+
+
+            }
+        }
     }
     void Move_input()
     {
         verical = Input.GetAxis("Vertical");
         horizon = Input.GetAxis("Horizontal");
-        isShoot = Input.GetMouseButtonDown(0);
+        isShoot = Input.GetMouseButton(0);
         
         
     }
