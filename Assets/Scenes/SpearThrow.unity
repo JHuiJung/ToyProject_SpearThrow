@@ -2111,7 +2111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'restart to throw
+  m_text: 'Quit to throw
 
     spear here!'
   m_isRightToLeft: 0
@@ -3173,7 +3173,7 @@ GameObject:
   - component: {fileID: 916587509}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4579,7 +4579,7 @@ MonoBehaviour:
   Txt_Score: {fileID: 916587509}
   Restart_Menu: {fileID: 1574365797}
   score: 0
-  total_Time: 10
+  total_Time: 60
 --- !u!4 &1403955966
 Transform:
   m_ObjectHideFlags: 0
@@ -5258,7 +5258,7 @@ GameObject:
   - component: {fileID: 1574365798}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Restart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

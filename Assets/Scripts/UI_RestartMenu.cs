@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
+
+
 
 public class UI_RestartMenu : MonoBehaviour
 {
@@ -21,7 +21,11 @@ public class UI_RestartMenu : MonoBehaviour
     {
         if (other.tag == "Spear")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
         }
 
     }
