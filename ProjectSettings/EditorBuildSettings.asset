@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 369a5a6f44e4a7f4c8cf475836c59d1c
+  - enabled: 1
     path: Assets/Scenes/SpearThrow.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

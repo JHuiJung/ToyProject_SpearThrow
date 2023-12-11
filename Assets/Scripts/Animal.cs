@@ -94,7 +94,12 @@ public class Animal : MonoBehaviour
             }
             
         }
-        other.GetComponent<Spear>().Destroy_this();
+        WeaponDummy wd = GetComponent<WeaponDummy>();
+        if (wd != null)
+        {
+            wd.Destroy_this();
+        }
+
     }
 
     void onDie()

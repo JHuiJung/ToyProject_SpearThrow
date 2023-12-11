@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -51,8 +52,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Update_Time();
-        Update_Text();
+        //Update_Time();
+        //Update_Text();
         
     }
     void Update_Text()
@@ -97,5 +98,10 @@ public class GameManager : MonoBehaviour
         score = 0;
         yield return new WaitForSeconds(3f);
         Restart_Menu.SetActive(true);
+    }
+
+    public void MoveScene(string _sceneName)
+    {
+        SceneManager.LoadScene(_sceneName);
     }
 }
